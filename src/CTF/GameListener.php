@@ -19,8 +19,8 @@ use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\Listener;
-use pocketmine\math\Vector3 as Vector3;
-use pocketmine\math\Vector2 as Vector2;
+use pocketmine\math\Vector3;
+use pocketmine\math\Vector2;
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\event\player\PlayerRespawnEvent;
@@ -40,8 +40,11 @@ use pocketmine\item\ItemBlock;
 
 
 class GameListener extends PluginBase implements Listener {
+
 	public function __construct(Main $plugin) {
 		parent::__construct($plugin);
 	}
-//TODO
+
+	//TODO
+
 }
