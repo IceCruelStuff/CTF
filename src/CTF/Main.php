@@ -9,41 +9,40 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\utils\TextFormat;
 
 class Main extends PluginBase implements CommandExecutor {
-	
+
 	public $redPlayers = [ ];
 	public $bluPlayers = [ ];
 	public $stats = [ ];
-	
+
 	public $playersWithRedFlag = [ ];
 	public $playersWithBlueFlag = [ ];
-	
+
 	public $gameState = 0;
 	public $redWins = 0;
 	public $bluWins = 0;
 	public $round = 0;
 	public $maxRounds = 3;
-	
+
 	public $CTFWorld;
 
 	public $setMode = "";
-	
 
-	public function onLoad() {		
+	public function onLoad() : void {		
 		$this->initComponents();
 		$this->getLogger()->info(TextFormat::GREEN . "Loading...");
 	}
 
-	public function onEnable() {	
+	public function onEnable() : void {	
 		$this->initConfig();
 		$this->getServer()->getPluginManager()->registerEvents(new GameListener($this), $this);
 		$this->getLogger()->info(TextFormat::GREEN . "CTF Plugin Loaded!");
 		
 	}
-	
+
 	private function initComponents() {
-//TODO
+		//TODO
 	}
-	
+
 	private function initConfig() {
 		try {
 			$this->saveDefaultConfig();
@@ -53,17 +52,19 @@ class Main extends PluginBase implements CommandExecutor {
 			}
 			$this->reloadConfig();
 			$this->getConfig()->getAll();
+		}
 	}
 
-	public function onDisable() {
+	public function onDisable() : void {
 		$this->getLogger()->info(TextFormat::RED . "CTF has been disabled");
 	}
-	
+
 	public function clearSetup() {
-		$this->setMode="";
+		$this->setMode = "";
 	}
-	
-	public function onCommand(CommandSender $sender, Command $command, $label, array $args) {
+
+	public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool {
 		//TODO
 	}
+
 }
